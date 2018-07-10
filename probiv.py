@@ -27,7 +27,8 @@ def email():
 
 email()
 def xakername():
-	temp_string = requests.post('http://xaker.name/login/login', data = {'login': mail, 'register': '0', 'password': 'test'})
+	scraper = cfscrape.create_scraper()
+	temp_string = scraper.post('http://xaker.name/login/login', data = {'login': mail, 'register': '0', 'password': 'test'})
 	temp_data = temp_string.text
 	global xaker_result
 	if temp_data.find("не найден.") != -1:
@@ -78,5 +79,50 @@ def xakfor():
 		xakfor_result = '"xakfor.net" = [+]'
 		
 #xakfor() rabotaet
+
+def dublikat():
+	scraper = cfscrape.create_scraper()
+	temp_string = scraper.post('https://dublikat.info/login/login', data = {'login': mail, 'register': '0', 'password': 'test'})
+	temp_data = temp_string.text
+	#temp_data = scraper.get(temp_string).content
+	global dublikat_result
+	if temp_data.find("не найден.") != -1:
+		print ("-")
+		dublikat_result = '"dublikat.net" = [-]'
+	else:
+		print ("+")
+		dublikat_result = '"dublikat.net" = [+]'
+		
+#dublikat() rabotaet
+
+def zblock():
+	scraper = cfscrape.create_scraper()
+	temp_string = scraper.post('https://zblock.me/login/login', data = {'login': mail, 'register': '0', 'password': 'test'})
+	temp_data = temp_string.text
+	#temp_data = scraper.get(temp_string).content
+	global zblock_result
+	if temp_data.find("не найден.") != -1:
+		print ("-")
+		zblock_result = '"zblock.me" = [-]'
+	else:
+		print ("+")
+		zblock_result = '"zblock.me" = [+]'
+		
+#zblock() rabotaet
+
+def bhf():
+	scraper = cfscrape.create_scraper()
+	temp_string = scraper.post('https://bhf.io/login/login', data = {'login': mail, 'register': '0', 'password': 'test'})
+	temp_data = temp_string.text
+	#temp_data = scraper.get(temp_string).content
+	global bhf_result
+	if temp_data.find("не найден.") != -1:
+		print ("-")
+		bhf_result = '"bhf.io" = [-]'
+	else:
+		print ("+")
+		bhf_result = '"bhf.io" = [+]'
+		
+zblock() #rabotaet
 
 #print(mail)
