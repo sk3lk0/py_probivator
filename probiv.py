@@ -123,6 +123,6 @@ def bhf():
 		print ("+")
 		bhf_result = '"bhf.io" = [+]'
 		
-zblock() #rabotaet
+bhf() #xz
 
 #print(mail)
