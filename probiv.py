@@ -6,14 +6,25 @@ import cfscrape
 clear = lambda: os.system('cls')
 
 clear()
-time.sleep(0.5)
+#time.sleep(0.5)
 ##
 ##сюда
 ##
-time.sleep(0.5)
-clear()
+#time.sleep(0.5)
+#clear()
 mail = " "
 xaker_result = " "
+prologic_result = " "
+xaker26_result = " "
+xakfor_result = " "
+dublikat_result = " "
+zblock_result = " "
+bhf_result = " "
+wwh_result = " "
+youhack_result = " "
+lolzteam_result = " "
+antichat_result = " "
+exploit_result = " "
 def email():
 	#while True:
 		print("BBEDITE EMAIL")
@@ -32,12 +43,12 @@ def xakername():
 	temp_data = temp_string.text
 	global xaker_result
 	if temp_data.find("не найден.") != -1:
-		print ("-")
+		#print ("-")
 		xaker_result = '"xaker.name" = [-]'
 	else:
-		print ("+")
+		#print ("+")
 		xaker_result = '"xaker.name" = [+]'
-#xakername() rabotaet
+xakername() #rabotaet
 
 def prologic():
 	temp_string = requests.post('https://prologic.su/index.php?app=core&module=global&section=lostpass', data = {'email_addy': mail})
@@ -57,10 +68,10 @@ def xaker26():
 	temp_data = temp_string.text
 	global xaker26_result
 	if temp_data.find("Зарегистрированного пользователя с таким e-mail адресом не существует") != -1:
-		print ("-")
+		#print ("-")
 		xaker26_result = '"xaker26.info" = [-]'
 	else:
-		print ("+")
+		#print ("+")
 		xaker26_result = '"xaker26.info" = [+]'
 		
 #xaker26() наверное работает, нету акка чтобы проверить
@@ -72,13 +83,13 @@ def xakfor():
 	
 	global xakfor_result
 	if temp_data.find("не найден.") != -1:
-		print ("-")
+		#print ("-")
 		xakfor_result = '"xakfor.net" = [-]'
 	else:
-		print ("+")
+		#print ("+")
 		xakfor_result = '"xakfor.net" = [+]'
 		
-#xakfor() rabotaet
+xakfor() #rabotaet
 
 def dublikat():
 	scraper = cfscrape.create_scraper()
@@ -87,13 +98,13 @@ def dublikat():
 	
 	global dublikat_result
 	if temp_data.find("не найден.") != -1:
-		print ("-")
+		#print ("-")
 		dublikat_result = '"dublikat.net" = [-]'
 	else:
-		print ("+")
+		#print ("+")
 		dublikat_result = '"dublikat.net" = [+]'
 		
-#dublikat() rabotaet
+dublikat() #rabotaet
 
 def zblock():
 	scraper = cfscrape.create_scraper()
@@ -101,13 +112,13 @@ def zblock():
 	temp_data = temp_string.text
 	global zblock_result
 	if temp_data.find("не найден.") != -1:
-		print ("-")
+		#print ("-")
 		zblock_result = '"zblock.me" = [-]'
 	else:
-		print ("+")
+		#print ("+")
 		zblock_result = '"zblock.me" = [+]'
 		
-#zblock() rabotaet
+zblock() #rabotaet
 
 def bhf():
 	scraper = cfscrape.create_scraper()
@@ -115,13 +126,13 @@ def bhf():
 	temp_data = temp_string.text
 	global bhf_result
 	if temp_data.find("не найден.") != -1:
-		print ("-")
+		#print ("-")
 		bhf_result = '"bhf.io" = [-]'
 	else:
-		print ("+")
+		#print ("+")
 		bhf_result = '"bhf.io" = [+]'
 		
-#bhf() #rabotaet
+bhf() #rabotaet
 
 def wwh():
 	scraper = cfscrape.create_scraper()
@@ -129,13 +140,13 @@ def wwh():
 	temp_data = temp_string.text
 	global wwh_result
 	if temp_data.find("не найден.") != -1:
-		print ("-")
+		#print ("-")
 		wwh_result = '"wwh-club.net" = [-]'
 	else:
-		print ("+")
+		#print ("+")
 		wwh_result = '"wwh-club.net" = [+]'
 		
-#wwh() #rabotaet
+wwh() #rabotaet
 
 def youhack():
 	scraper = cfscrape.create_scraper()
@@ -171,13 +182,13 @@ def antichat():
 	temp_data = temp_string.text
 	global antichat_result
 	if temp_data.find("could not be found.") != -1:
-		print ("-")
+		#print ("-")
 		antichat_result = '"forum.antichat.ru" = [-]'
 	else:
-		print ("+")
+		#print ("+")
 		antichat_result = '"forum.antichat.ru" = [+]'
 		
-#antichat() #rabotaet
+antichat() #rabotaet
 
 def exploit():
 	scraper = cfscrape.create_scraper()
@@ -185,13 +196,19 @@ def exploit():
 	temp_data = temp_string.text
 	global exploit_result
 	if temp_data.find("Невозможно найти пользователя") != -1:
-		print ("-")
+		#print ("-")
 		exploit_result = '"exploit.in" = [-]'
 	else:
-		print ("+")
+		#print ("+")
 		exploit_result = '"exploit.in" = [+]'
 		
-exploit() #rabotaet
+#exploit() #rabotaet na login, email captcha
 
 
-#print(mail)
+print(xaker_result)
+print(xakfor_result)
+print(dublikat_result)
+print(zblock_result)
+print(bhf_result)
+print(wwh_result)
+print(antichat_result)
