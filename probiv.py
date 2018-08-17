@@ -4,7 +4,6 @@ import re
 import requests
 import cfscrape
 import sys
-import random
 
 if __name__ == "__main__":
     if len (sys.argv) == 1:
