@@ -3,212 +3,181 @@ import os
 import re
 import requests
 import cfscrape
-clear = lambda: os.system('cls')
+import sys
+import random
 
-clear()
-#time.sleep(0.5)
-##
-##сюда
-##
-#time.sleep(0.5)
-#clear()
-mail = " "
-xaker_result = " "
-prologic_result = " "
-xaker26_result = " "
-xakfor_result = " "
-dublikat_result = " "
-zblock_result = " "
-bhf_result = " "
-wwh_result = " "
-youhack_result = " "
-lolzteam_result = " "
-antichat_result = " "
-exploit_result = " "
-def email():
-	#while True:
-		print("BBEDITE EMAIL")
-		global mail
-		mail = input()
-		#if mail.find("@") == -1:
-		#	print ("NE CORRECTNO")
-		#else:
-		#	print ("PRINYATO")
-		#	break
+if __name__ == "__main__":
+    if len (sys.argv) == 1:
+        print ("1argument")
+    else:
+        if len (sys.argv) < 3:
+            print ("Ошибка. Слишком мало параметров.")
+            sys.exit (1)
 
-email()
-def xakername():
+        if len (sys.argv) > 3:
+            print ("Ошибка. Слишком много параметров.")
+            sys.exit (1)
+
+    param_name = sys.argv[1]#email || nick
+    param_value = sys.argv[2]#value
+	
+def xakername():# login & email
+	
+	#sys.exit (1)
 	scraper = cfscrape.create_scraper()
-	temp_string = scraper.post('http://xaker.name/login/login', data = {'login': mail, 'register': '0', 'password': 'test'})
+	temp_string = scraper.post('http://xaker.name/login/login', data = {'login': param_value, 'register': '0', 'password': 'test'})
 	temp_data = temp_string.text
 	global xaker_result
 	if temp_data.find("не найден.") != -1:
-		#print ("-")
 		xaker_result = '"xaker.name" = [-]'
 	else:
-		#print ("+")
 		xaker_result = '"xaker.name" = [+]'
-xakername() #rabotaet
-
-def prologic():
-	temp_string = requests.post('https://prologic.su/index.php?app=core&module=global&section=lostpass', data = {'email_addy': mail})
-	temp_data = temp_string.text
-	global prologic_result
-	if temp_data.find("К сожалению нам не удалось найти пользователя с такими данными.") != -1:
-		print ("-")
-		prologic_result = '"prologic.su" = [-]'
+	if (param_name == "-email"):
+		time.sleep(0)
+	elif (param_name == "-nickname"):
+		time.sleep(0) #пробить members
 	else:
-		print ("+")
-		prologic_result = '"prologic.su" = [+]'
-		
-#prologic() не работает
-
-def xaker26():
-	temp_string = requests.post('http://xaker26.info/login.php?action=forget_2', data = {'form_sent': '1','req_email': mail})
-	temp_data = temp_string.text
-	global xaker26_result
-	if temp_data.find("Зарегистрированного пользователя с таким e-mail адресом не существует") != -1:
-		#print ("-")
-		xaker26_result = '"xaker26.info" = [-]'
-	else:
-		#print ("+")
-		xaker26_result = '"xaker26.info" = [+]'
-		
-#xaker26() наверное работает, нету акка чтобы проверить
+		print ("Ошибка. Неизвестный параметр '{}'".format (param_name) )
+xakername()
+#print(xaker_result)
 
 def xakfor():
+	
 	scraper = cfscrape.create_scraper()
-	temp_string = scraper.post('https://xakfor.net/login/login', data = {'login': mail, 'register': '0', 'password': 'test'})
+	temp_string = scraper.post('https://xakfor.net/login/login', data = {'login': param_value, 'register': '0', 'password': 'test'})
 	temp_data = temp_string.text
 	
 	global xakfor_result
 	if temp_data.find("не найден.") != -1:
-		#print ("-")
 		xakfor_result = '"xakfor.net" = [-]'
 	else:
-		#print ("+")
 		xakfor_result = '"xakfor.net" = [+]'
-		
-xakfor() #rabotaet
+	if (param_name == "-email"):
+		time.sleep(0)
+	elif (param_name == "-nickname"):
+		time.sleep(0) #пробить members
+	else:
+		print ("Ошибка. Неизвестный параметр '{}'".format (param_name) )
+xakfor()
+#print(xakfor_result)
 
 def dublikat():
+
 	scraper = cfscrape.create_scraper()
-	temp_string = scraper.post('https://dublikat.info/login/login', data = {'login': mail, 'register': '0', 'password': 'test'})
+	temp_string = scraper.post('https://dublik.at/login/login', data = {'login': param_value, 'register': '0', 'password': 'test'})
 	temp_data = temp_string.text
 	
 	global dublikat_result
 	if temp_data.find("не найден.") != -1:
-		#print ("-")
-		dublikat_result = '"dublikat.net" = [-]'
+		dublikat_result = '"dublik.at" = [-]'
 	else:
-		#print ("+")
-		dublikat_result = '"dublikat.net" = [+]'
-		
+		dublikat_result = '"dublik.at" = [+]'
+	if (param_name == "-email"):
+		time.sleep(0)
+	elif (param_name == "-nickname"):
+		time.sleep(0) #пробить members
+	else:
+		print ("Ошибка. Неизвестный параметр '{}'".format (param_name) )
 dublikat() #rabotaet
+#print(dublikat_result)
 
 def zblock():
 	scraper = cfscrape.create_scraper()
-	temp_string = scraper.post('https://zblock.me/login/login', data = {'login': mail, 'register': '0', 'password': 'test'})
+	temp_string = scraper.post('https://zblock.me/login/login', data = {'login': param_value, 'register': '0', 'password': 'test'})
 	temp_data = temp_string.text
 	global zblock_result
 	if temp_data.find("не найден.") != -1:
-		#print ("-")
 		zblock_result = '"zblock.me" = [-]'
 	else:
-		#print ("+")
 		zblock_result = '"zblock.me" = [+]'
-		
-zblock() #rabotaet
-
-def bhf():
-	scraper = cfscrape.create_scraper()
-	temp_string = scraper.post('https://bhf.io/login/login', data = {'login': mail, 'register': '0', 'password': 'test'})
-	temp_data = temp_string.text
-	global bhf_result
-	if temp_data.find("не найден.") != -1:
-		#print ("-")
-		bhf_result = '"bhf.io" = [-]'
+	if (param_name == "-email"):
+		time.sleep(0)
+	elif (param_name == "-nickname"):
+		time.sleep(0) #пробить members
 	else:
-		#print ("+")
-		bhf_result = '"bhf.io" = [+]'
-		
-bhf() #rabotaet
+		print ("Ошибка. Неизвестный параметр '{}'".format (param_name) )
+zblock() #rabotaet
+#print(zblock_result)
 
 def wwh():
 	scraper = cfscrape.create_scraper()
-	temp_string = scraper.post('https://wwh-club.net/login/login', data = {'login': mail, 'register': '0', 'password': 'test'})
+	temp_string = scraper.post('https://wwh-club.net/login/login', data = {'login': param_value, 'register': '0', 'password': 'test'})
 	temp_data = temp_string.text
 	global wwh_result
 	if temp_data.find("не найден.") != -1:
-		#print ("-")
 		wwh_result = '"wwh-club.net" = [-]'
 	else:
-		#print ("+")
 		wwh_result = '"wwh-club.net" = [+]'
-		
+	if (param_name == "-email"):
+		time.sleep(0)
+	elif (param_name == "-nickname"):
+		time.sleep(0) #пробить members
+	else:
+		print ("Ошибка. Неизвестный параметр '{}'".format (param_name) )
 wwh() #rabotaet
-
-def youhack():
-	scraper = cfscrape.create_scraper()
-	temp_string = scraper.post('https://youhack.ru/login/login', data = {'login': mail, 'register': '0', 'password': 'test'})
-	temp_data = temp_string.text
-	global youhack_result
-	if temp_data.find("не найден.") != -1:
-		print ("-")
-		youhack_result = '"youhack.ru" = [-]'
-	else:
-		print ("+")
-		youhack_result = '"youhack.ru" = [+]'
-		
-#youhack() #dodelat, captcha
-
-def lolzteam():
-	scraper = cfscrape.create_scraper()
-	temp_string = scraper.post('https://lolzteam.net/login/login', data = {'login': mail, 'register': '0', 'password': 'test'})
-	temp_data = temp_string.text
-	global lolzteam_result
-	if temp_data.find("не найден.") != -1:
-		print ("-")
-		lolzteam_result = '"lolzteam.net" = [-]'
-	else:
-		print ("+")
-		lolzteam_result = '"lolzteam.net" = [+]'
-		
-#lolzteam() #dodelat, captcha
+#print(wwh_result)
 
 def antichat():
 	scraper = cfscrape.create_scraper()
-	temp_string = scraper.post('https://forum.antichat.ru/login/login', data = {'login': mail, 'register': '0', 'password': 'test'})
+	temp_string = scraper.post('https://forum.antichat.ru/login/login', data = {'login': param_value, 'register': '0', 'password': 'test'})
 	temp_data = temp_string.text
 	global antichat_result
 	if temp_data.find("could not be found.") != -1:
-		#print ("-")
 		antichat_result = '"forum.antichat.ru" = [-]'
 	else:
-		#print ("+")
 		antichat_result = '"forum.antichat.ru" = [+]'
-		
-antichat() #rabotaet
-
-def exploit():
-	scraper = cfscrape.create_scraper()
-	temp_string = scraper.post('https://forum.exploit.in/index.php?act=Login&CODE=01', data = {'UserName': mail,'PassWord': 'test'})
-	temp_data = temp_string.text
-	global exploit_result
-	if temp_data.find("Невозможно найти пользователя") != -1:
-		#print ("-")
-		exploit_result = '"exploit.in" = [-]'
+	if (param_name == "-email"):
+		time.sleep(0)
+	elif (param_name == "-nickname"):
+		time.sleep(0) #пробить members
 	else:
-		#print ("+")
-		exploit_result = '"exploit.in" = [+]'
-		
-#exploit() #rabotaet na login, email captcha
+		print ("Ошибка. Неизвестный параметр '{}'".format (param_name) )
+antichat()
+#print(antichat_result)
 
+def blackangels():
+	scraper = cfscrape.create_scraper()
+	temp_string = scraper.post('https://blackangels.team/login/login', data = {'login': param_value, 'register': '0', 'password': 'test'})
+	temp_data = temp_string.text
+	global blackangels_result
+	if temp_data.find("не найден.") != -1:
+		blackangels_result = '"blackangels.team" = [-]'
+	else:
+		blackangels_result = '"blackangels.team" = [+]'
+	if (param_name == "-email"):
+		time.sleep(0)
+	elif (param_name == "-nickname"):
+		time.sleep(0) #пробить members
+	else:
+		print ("Ошибка. Неизвестный параметр '{}'".format (param_name) )
+blackangels() #rabotaet
+#print(blackangels_result)
 
-print(xaker_result)
-print(xakfor_result)
-print(dublikat_result)
-print(zblock_result)
-print(bhf_result)
-print(wwh_result)
-print(antichat_result)
+def vlmi():
+	scraper = cfscrape.create_scraper()
+	temp_string = scraper.post('https://vlmi.su/login/login', data = {'login': param_value, 'register': '0', 'password': 'test'})
+	temp_data = temp_string.text
+	global vlmi_result
+	if temp_data.find("не найден.") != -1:
+		vlmi_result = '"vlmi.su" = [-]'
+	else:
+		vlmi_result = '"vlmi.su" = [+]'
+	if (param_name == "-email"):
+		time.sleep(0)
+	elif (param_name == "-nickname"):
+		time.sleep(0) #пробить members
+	else:
+		print ("Ошибка. Неизвестный параметр '{}'".format (param_name) )
+vlmi()
+#print(vlmi_result)
+temp = param_value
+
+f = open('C:\\VIRUS\\xampp\\htdocs\\probiv\\'+temp,'w')
+f.write(xaker_result+'\n')
+f.write(xakfor_result+'\n')
+f.write(dublikat_result+'\n')
+f.write(zblock_result+'\n')
+f.write(wwh_result+'\n')
+f.write(antichat_result+'\n')
+f.write(blackangels_result+'\n')
+f.close()
