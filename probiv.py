@@ -172,7 +172,7 @@ vlmi()
 #print(vlmi_result)
 temp = param_value
 
-f = open('C:\\VIRUS\\xampp\\htdocs\\probiv\\'+temp,'w')
+f = open('C:\\'+temp,'w')
 f.write(xaker_result+'\n')
 f.write(xakfor_result+'\n')
 f.write(dublikat_result+'\n')
